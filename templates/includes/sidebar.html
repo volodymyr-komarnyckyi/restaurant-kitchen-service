@@ -1,4 +1,13 @@
 <ul class="sidebar-nav">
+  {% if user.is_authenticated %}
+    <li>User: {{ user.username }}</li>
+    <li><a href="{% url "logout" %}">Logout</a></li>
+  {% else %}
+    <li><a href="{% url "login" %}">Login</a></li>
+  {% endif %}
+
+  <br>
+
   <li><a href="{% url "kitchen:index" %}">Home</a></li>
   <li><a href="{% url "kitchen:cook-list" %}">All cooks</a></li>
   <li><a href="{% url "kitchen:dish-list" %}">All dishes</a></li>
