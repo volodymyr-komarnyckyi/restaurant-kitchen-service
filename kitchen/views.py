@@ -23,27 +23,17 @@ class DishTypeListView(generic.ListView):
     model = DishType
     context_object_name = "dish_type_list"
     template_name = "kitchen/dish_type_list.html"
+    paginate_by = 2
 
 
 class DishListView(generic.ListView):
     model = Dish
     queryset = Dish.objects.select_related("dish_type")
+    paginate_by = 2
 
 
 class DishDetailView(generic.DetailView):
     model = Dish
-
-# def dish_detail_view(request, pk):
-#     try:
-#         dish = Dish.objects.get(pk=pk)
-#     except Dish.DoesNotExist:
-#         raise Http404("Book does not exist!")
-#
-#     context = {
-#         "dish": dish,
-#     }
-#
-#     return render(request, "kitchen/dish_detail.html", context=context)
 
 
 class CookListView(generic.ListView):
