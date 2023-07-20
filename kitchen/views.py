@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 from django.views import generic
 
@@ -27,6 +28,22 @@ class DishTypeListView(generic.ListView):
 class DishListView(generic.ListView):
     model = Dish
     queryset = Dish.objects.select_related("dish_type")
+
+
+class DishDetailView(generic.DetailView):
+    model = Dish
+
+# def dish_detail_view(request, pk):
+#     try:
+#         dish = Dish.objects.get(pk=pk)
+#     except Dish.DoesNotExist:
+#         raise Http404("Book does not exist!")
+#
+#     context = {
+#         "dish": dish,
+#     }
+#
+#     return render(request, "kitchen/dish_detail.html", context=context)
 
 
 class CookListView(generic.ListView):
