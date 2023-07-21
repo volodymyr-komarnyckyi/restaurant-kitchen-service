@@ -1,8 +1,160 @@
+/*body {*/
+/*    margin-top: 20px;*/
+/*}*/
+
+/*.sidebar-nav {*/
+/*    padding: 0;*/
+/*    list-style: none;*/
+/*}*/
+
+
+
+/* Body and Container Styles */
 body {
-    margin-top: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+}
+
+.container-fluid {
+  padding: 20px;
+}
+
+/* Sidebar Styles */
+.col-sm-3 {
+  background-color: #f0f0f0;
+  min-height: 100vh;
+}
+
+/* Sidebar Content Styles */
+.sidebar-header {
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+.sidebar-navigation {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.sidebar-navigation li {
+  padding: 10px;
+}
+
+.sidebar-navigation li a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar-navigation li a:hover {
+  background-color: #ddd;
+}
+
+/* Main Content Styles */
+.col-sm-9 {
+  background-color: #fff;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Page Header Styles */
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* Card Styles */
+.card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 16px;
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #333;
+  background-color: #f0f0f0;
+  padding: 8px 12px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.pagination a:hover {
+  background-color: #ddd;
+}
+
+.pagination .active {
+  background-color: #333;
+  color: #fff;
 }
 
 .sidebar-nav {
-    padding: 0;
-    list-style: none;
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-nav .list-group-item {
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  font-size: 18px;
+}
+
+.sidebar-nav .list-group-item a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.sidebar-nav .list-group-item a:hover {
+  color: #007bff;
+}
+
+.sidebar-nav .active {
+  font-weight: bold;
+  background-color: #007bff;
+}
+
+.sidebar-nav .active a {
+  color: #fff;
+}
+
+/* Sidebar Header Styles */
+.sidebar-header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Horizontal Line Styles */
+.hr-divider {
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
 }

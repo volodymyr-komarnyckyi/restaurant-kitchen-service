@@ -1,52 +1,104 @@
+{#{% extends "base.html" %}#}
+{##}
+{#{% block content %}#}
+{#  <h1>#}
+{#    Name: {{ dish.name }}#}
+{##}
+{#    <a href="{% url 'kitchen:dish-update' pk=dish.id %}" class="btn btn-secondary link-to-page">#}
+{#      Update#}
+{#    </a>#}
+{##}
+{#    <a href="{% url 'kitchen:dish-delete' pk=dish.id %}" class="btn btn-danger link-to-page">#}
+{#      Delete#}
+{#    </a>#}
+{#  </h1>#}
+{##}
+{#  <p><strong>Price:</strong> {{ dish.price }} </p>#}
+{#  <p><strong>Dish type:</strong> {{ dish.dish_type.name }} </p>#}
+{#  <p><strong>Dish description:</strong> {{ dish.description }}</p>#}
+{##}
+{#  <div class="ml-3">#}
+{#    <h3>#}
+{#      Cooks#}
+{#      <form style="float: right" action="{% url "kitchen:dish-update-cook" pk=dish.id %}" method="post">#}
+{#        {% csrf_token %}#}
+{#        {% if request.user in dish.cooks.all %}#}
+{#          <input#}
+{#            type="submit"#}
+{#            class="btn btn-danger link-to-page"#}
+{#            value="Do not cook this dish" />#}
+{#        {% else %}#}
+{#          <input#}
+{#            type="submit"#}
+{#            class="btn btn-success link-to-page"#}
+{#            value="Cook this dish" />#}
+{#        {% endif %}#}
+{#      </form>#}
+{#    </h3>#}
+{##}
+{#    {% for cook in dish.cooks.all %}#}
+{#      <hr>#}
+{#      <p class="text-muted"><strong>Id:</strong> {{ cook.id }} </p>#}
+{#      <p>#}
+{#        <strong>Full name:</strong>#}
+{#        {{ cook.first_name }} {{ cook.last_name }}#}
+{#        {% if cook.years_of_experience %}(years of experience: {{ cook.years_of_experience }}){% endif %}#}
+{#      </p>#}
+{#    {% empty %}#}
+{#      <p>There are no cooks!</p>#}
+{#    {% endfor %}#}
+{##}
+{#  </div>#}
+{#{% endblock %}#}
+
+
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-  <h1>
-    Name: {{ dish.name }}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1>Name: {{ dish.name }}</h1>
+      </div>
+      <div class="col-md-4 text-right">
+        <a href="{% url 'kitchen:dish-update' pk=dish.id %}" class="btn btn-secondary link-to-page">Update</a>
+        <a href="{% url 'kitchen:dish-delete' pk=dish.id %}" class="btn btn-danger link-to-page">Delete</a>
+      </div>
+    </div>
 
-    <a href="{% url 'kitchen:dish-update' pk=dish.id %}" class="btn btn-secondary link-to-page">
-      Update
-    </a>
+    <p><strong>Price:</strong> {{ dish.price }} </p>
+    <p><strong>Dish type:</strong> {{ dish.dish_type.name }} </p>
+    <p><strong>Dish description:</strong> {{ dish.description }}</p>
 
-    <a href="{% url 'kitchen:dish-delete' pk=dish.id %}" class="btn btn-danger link-to-page">
-      Delete
-    </a>
-  </h1>
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <h3>Cooks</h3>
+        <form action="{% url 'kitchen:dish-update-cook' pk=dish.id %}" method="post">
+          {% csrf_token %}
+          {% if request.user in dish.cooks.all %}
+            <input type="submit" class="btn btn-danger link-to-page" value="Do not cook this dish" />
+          {% else %}
+            <input type="submit" class="btn btn-success link-to-page" value="Cook this dish" />
+          {% endif %}
+        </form>
+      </div>
+    </div>
 
-  <p><strong>Price:</strong> {{ dish.price }} </p>
-  <p><strong>Dish type:</strong> {{ dish.dish_type.name }} </p>
-  <p><strong>Dish description:</strong> {{ dish.description }}</p>
-
-  <div class="ml-3">
-    <h3>
-      Cooks
-      <form style="float: right" action="{% url "kitchen:dish-update-cook" pk=dish.id %}" method="post">
-        {% csrf_token %}
-        {% if request.user in dish.cooks.all %}
-          <input
-            type="submit"
-            class="btn btn-danger link-to-page"
-            value="Do not cook this dish" />
-        {% else %}
-          <input
-            type="submit"
-            class="btn btn-success link-to-page"
-            value="Cook this dish" />
-        {% endif %}
-      </form>
-    </h3>
-
-    {% for cook in dish.cooks.all %}
-      <hr>
-      <p class="text-muted"><strong>Id:</strong> {{ cook.id }} </p>
-      <p>
-        <strong>Full name:</strong>
-        {{ cook.first_name }} {{ cook.last_name }}
-        {% if cook.years_of_experience %}(years of experience: {{ cook.years_of_experience }}){% endif %}
-      </p>
-    {% empty %}
-      <p>There are no cooks!</p>
-    {% endfor %}
-
+    <div class="row mt-4">
+      <div class="col-md-12">
+        {% for cook in dish.cooks.all %}
+          <hr>
+          <p class="text-muted"><strong>ID:</strong> {{ cook.id }} </p>
+          <p>
+            <strong>Full name:</strong>
+            {{ cook.first_name }} {{ cook.last_name }}
+            {% if cook.years_of_experience %}(years of experience: {{ cook.years_of_experience }}){% endif %}
+          </p>
+        {% empty %}
+          <p>There are no cooks!</p>
+        {% endfor %}
+      </div>
+    </div>
   </div>
 {% endblock %}

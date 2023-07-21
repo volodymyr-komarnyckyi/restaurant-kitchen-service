@@ -1,14 +1,60 @@
+{#{% extends "base.html" %}#}
+{##}
+{#{% block content %}#}
+{#  <h1>Restaurant Home</h1>#}
+{#  <p>Welcome to the Greatest Restaurant!</p>#}
+{#  <h3>Restaurant content:</h3>#}
+{#  <ul>#}
+{#    <li>Num dishes: {{ num_dishes }}</li>#}
+{#    <li>Num cooks: {{ num_cooks }}</li>#}
+{#    <li>Num dish types: {{ num_dish_types }}</li>#}
+{#  </ul>#}
+{##}
+{#  <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>#}
+{#{% endblock %}#}
+
+
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-  <h1>Restaurant Home</h1>
-  <p>Welcome to the Greatest Restaurant!</p>
-  <h3>Restaurant content:</h3>
-  <ul>
-    <li>Num dishes: {{ num_dishes }}</li>
-    <li>Num cooks: {{ num_cooks }}</li>
-    <li>Num dish types: {{ num_dish_types }}</li>
-  </ul>
-
-  <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto text-center">
+        <h1 class="display-4 mt-5">Welcome to the Greatest Restaurant!</h1>
+        <p class="lead">Discover a world of delicious dishes and culinary delights.</p>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-body">
+            <h3 class="card-title">Number of Dishes</h3>
+            <p class="card-text">{{ num_dishes }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-body">
+            <h3 class="card-title">Number of Cooks</h3>
+            <p class="card-text">{{ num_cooks }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-body">
+            <h3 class="card-title">Number of Dish Types</h3>
+            <p class="card-text">{{ num_dish_types }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-8 mx-auto text-center">
+        <p class="lead">You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+      </div>
+    </div>
+  </div>
 {% endblock %}
