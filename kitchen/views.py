@@ -96,6 +96,12 @@ class CookCreateView(LoginRequiredMixin, generic.CreateView):
     success_url = reverse_lazy("kitchen:cook-list")
 
 
+class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Cook
+    fields = ["username", "first_name", "last_name", "email", "years_of_experience"]
+    success_url = reverse_lazy("kitchen:cook-list")
+
+
 class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Cook
     success_url = reverse_lazy("kitchen:cook-list")
