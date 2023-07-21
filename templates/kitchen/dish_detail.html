@@ -3,12 +3,13 @@
 {% block content %}
   <h1>
     Name: {{ dish.name }}
-    <a href="{% url 'kitchen:dish-delete' pk=dish.id %}" class="btn btn-danger link-to-page">
-      Delete
-    </a>
 
     <a href="{% url 'kitchen:dish-update' pk=dish.id %}" class="btn btn-secondary link-to-page">
       Update
+    </a>
+
+    <a href="{% url 'kitchen:dish-delete' pk=dish.id %}" class="btn btn-danger link-to-page">
+      Delete
     </a>
   </h1>
 
