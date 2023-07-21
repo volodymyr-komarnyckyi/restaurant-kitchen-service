@@ -3,10 +3,17 @@
 {% block content %}
   <h1>
     Name: {{ dish.name }}
-    <a style="float: right" href="{% url "kitchen:dish-update" pk=dish.id%}">Edit</a>
+    <a href="{% url 'kitchen:dish-delete' pk=dish.id %}" class="btn btn-danger link-to-page">
+      Delete
+    </a>
+
+    <a href="{% url 'kitchen:dish-update' pk=dish.id %}" class="btn btn-secondary link-to-page">
+      Update
+    </a>
   </h1>
   <p><strong>Price:</strong> {{ dish.price }} </p>
   <p><strong>Dish type:</strong> {{ dish.dish_type.name }} </p>
+  <p><strong>Dish description:</strong> {{ dish.description }}</p>
 
   <div class="ml-3">
     <h3>Cooks</h3>

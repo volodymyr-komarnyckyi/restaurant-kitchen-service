@@ -6,14 +6,37 @@
     <a style="float: right" href="{% url "kitchen:dish-create" %}">+</a>
   </h1>
   {% if dish_list %}
-    <ul>
+    <table class="table">
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Dish type</td>
+        <td>Cooks</td>
+      </tr>
+
       {% for dish in dish_list %}
-        <li>
-          <a href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish.name }}</a>
-          (price: {{ dish.price }}, dish type: {{ dish.dish_type.name }})
-        </li>
+        <tr>
+          <td>
+            <a href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish.id }}</a>
+          </td>
+          <td>
+            {{ dish.name }}
+          </td>
+          <td>
+            {{ dish.price }}
+          </td>
+          <td>
+            {{ dish.dish_type.name }}
+          </td>
+          <td>
+            {% for cook in dish.cooks.all %}
+                {{ cook.first_name }} {{ cook.last_name }} <br>
+            {% endfor %}
+          </td>
+        </tr>
       {% endfor %}
-    </ul>
+    </table>
   {% else %}
     <p>There are no dishes in menu.</p>
   {% endif %}
