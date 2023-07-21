@@ -79,7 +79,6 @@ class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
-    queryset = Dish.objects.select_related("dish_type")
     paginate_by = 2
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -94,14 +93,16 @@ class DishListView(LoginRequiredMixin, generic.ListView):
         return context
 
     def get_queryset(self):
+        queryset = Dish.objects.select_related("dish_type")
+
         form = DishSearchForm(self.request.GET)
 
         if form.is_valid():
-            return self.queryset.filter(
+            return queryset.filter(
                 name__icontains=form.cleaned_data["name"]
             )
 
-        return self.queryset
+        return queryset
 
 
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
