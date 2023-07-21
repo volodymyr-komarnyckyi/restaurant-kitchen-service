@@ -34,7 +34,7 @@
           </td>
           <td>
             {% for cook in dish.cooks.all %}
-                {{ cook.first_name }} {{ cook.last_name }} <br>
+              <a href="{% url "kitchen:cook-detail" pk=cook.id %}">{{ cook.first_name }} {{ cook.last_name }}</a> <br>
             {% endfor %}
           </td>
         </tr>
