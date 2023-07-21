@@ -5,6 +5,9 @@
     Dish List
     <a style="float: right" href="{% url "kitchen:dish-create" %}">+</a>
   </h1>
+
+  {% include "includes/search_form.html" %}
+
   {% if dish_list %}
     <table class="table">
       <tr>
