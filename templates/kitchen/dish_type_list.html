@@ -1,51 +1,3 @@
-{#{% extends "base.html" %}#}
-{#{% load static %}#}
-{##}
-{#{% block content %}#}
-{#  <div class="container">#}
-{#    <div class="row">#}
-{#      <div class="col-md-8">#}
-{#        <h1>Dish Type List</h1>#}
-{#      </div>#}
-{#      <div class="col-md-4 text-right">#}
-{#        <a href="{% url 'kitchen:dish-type-create' %}" class="btn btn-primary">Create New Dish Type</a>#}
-{#      </div>#}
-{#    </div>#}
-{##}
-{#    {% include "includes/search_form.html" %}#}
-{##}
-{#    {% if dish_type_list %}#}
-{#      <div class="table-responsive mt-4">#}
-{#        <table class="table table-bordered table-striped">#}
-{#          <thead>#}
-{#            <tr>#}
-{#              <th>ID</th>#}
-{#              <th>Name</th>#}
-{#              <th>Update</th>#}
-{#              <th>Delete</th>#}
-{#            </tr>#}
-{#          </thead>#}
-{#          <tbody>#}
-{#            {% for dish_type in dish_type_list %}#}
-{#              <tr>#}
-{#                <td>{{ dish_type.id }}</td>#}
-{#                <td>{{ dish_type.name }}</td>#}
-{#                <td><a href="{% url 'kitchen:dish-type-update' pk=dish_type.id %}" class="btn btn-secondary">Update</a></td>#}
-{#                <td><a href="{% url 'kitchen:dish-type-delete' pk=dish_type.id %}" class="btn btn-danger">Delete</a></td>#}
-{#              </tr>#}
-{#            {% endfor %}#}
-{#          </tbody>#}
-{#        </table>#}
-{#      </div>#}
-{#    {% else %}#}
-{#      <p class="mt-4">There are no dish types in the menu.</p>#}
-{#    {% endif %}#}
-{#  </div>#}
-{#{% endblock %}#}
-
-
-
-
 {% extends "base.html" %}
 {% load static %}
 
@@ -54,7 +6,7 @@
     .dish-type-container {
       margin-top: 35px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, 220px); /* Кожен квадратик з шириною 220px */
+      grid-template-columns: repeat(auto-fill, 220px);
       grid-gap: 20px;
       justify-content: space-between;
     }
@@ -76,14 +28,14 @@
     }
 
     .dish-name {
-      overflow: auto; /* Уникнути прокручування, якщо текст стає довшим */
-      flex-grow: 1; /* Розтягнути по вертикалі всередині .dish-type-item */
+      overflow: auto;
+      flex-grow: 1;
     }
 
     .dish-type-buttons {
       display: flex;
       justify-content: flex-end;
-      margin-top: 10px; /* Додано зазор зверху для кнопок */
+      margin-top: 10px;
     }
 
     .dish-type-buttons a {
@@ -132,7 +84,7 @@
               {% for dish in dish_type.dishes.all %}
                 <hr>
                 <p>Dishes:</p>
-                <p><strong>Name:</strong> {{ dish.name }}</p>
+                <p><strong>Name:</strong> <a href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish.name }}</a></p>
               {% empty %}
                 <p>There are no dishes!</p>
               {% endfor %}
