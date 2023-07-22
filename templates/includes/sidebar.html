@@ -1,136 +1,31 @@
-{#<ul class="sidebar-nav list-group">#}
-{#  {% if user.is_authenticated %}#}
-{#    <li class="list-group-item">User: {{ user.username }}</li>#}
-{#    <li class="list-group-item"><a href="{% url "logout" %}">Logout</a></li>#}
-{#  {% else %}#}
-{#    <li class="list-group-item"><a href="{% url "login" %}">Login</a></li>#}
-{#  {% endif %}#}
-{##}
-{#  <br>#}
-{##}
-{#  <li class="list-group-item"><a href="{% url "kitchen:index" %}">Home</a></li>#}
-{#  <li class="list-group-item"><a href="{% url "kitchen:cook-list" %}">All cooks</a></li>#}
-{#  <li class="list-group-item"><a href="{% url "kitchen:dish-list" %}">All dishes</a></li>#}
-{#  <li class="list-group-item"><a href="{% url "kitchen:dish-type-list" %}">All dish types</a></li>#}
-{#</ul>#}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-
-
-
-{#<ul class="sidebar-nav list-group">#}
-{#  {% if user.is_authenticated %}#}
-{#    <li class="list-group-item">User: {{ user.username }}</li>#}
-{#    <li class="list-group-item"><a href="{% url "logout" %}">Logout</a></li>#}
-{#  {% else %}#}
-{#    <li class="list-group-item"><a href="{% url "login" %}">Login</a></li>#}
-{#  {% endif %}#}
-{##}
-{#  <br>#}
-{##}
-{#  <li class="list-group-item {% if request.resolver_match.view_name == "kitchen:index" %}active{% endif %} text-white">#}
-{#    <a href="{% url "kitchen:index" %}">Home</a>#}
-{#  </li>#}
-{#  <li class="list-group-item {% if request.resolver_match.view_name == "kitchen:cook-list" %}active{% endif %} text-white">#}
-{#    <a href="{% url "kitchen:cook-list" %}">All cooks</a>#}
-{#  </li>#}
-{#  <li class="list-group-item {% if request.resolver_match.view_name == "kitchen:dish-list" %}active{% endif %} text-white">#}
-{#    <a href="{% url "kitchen:dish-list" %}">All dishes</a>#}
-{#  </li>#}
-{#  <li class="list-group-item {% if request.resolver_match.view_name == "kitchen:dish-type-list" %}active{% endif %} text-white">#}
-{#    <a href="{% url "kitchen:dish-type-list" %}">All dish types</a>#}
-{#  </li>#}
-{#</ul>#}
-
-
-
-
-
-
-
-
-{#<div id="full-screen-example" class="sidenav bg-light sidenav-dark" data-color="dark" data-mode="side" data-hidden="false" data-scroll-container="#scrollContainer" style="width: 240px; height: 100vh; position: fixed; transition: all 0.3s linear 0s; transform: translateX(0%);">#}
-{#      <div class="mt-4">#}
-{#        <div id="header-content" class="pl-3">#}
-{##}
-{#          <h4>#}
-{#            {% if user.is_authenticated %}#}
-{#              <span style="white-space: nowrap;">{{ user.username }}</span>#}
-{#            {% else %}#}
-{#              <a href="{% url "login" %}">Login</a>#}
-{#            {% endif %}#}
-{#          </h4>#}
-{#        </div>#}
-{#        <hr class="mb-0">#}
-{#      </div>#}
-{#      <div id="scrollContainer" class="ps ps--active-y" style="max-height: calc(100% - 245px); position: relative;">#}
-{#        <ul class="sidenav-menu">#}
-{#          <li class="sidenav-item">#}
-{#            <a class="sidenav-link ripple-surface" href="{% url "kitchen:index" %}" tabindex="1"> <i class="fas fa-envelope pr-3"></i>Home</a>#}
-{#          </li>#}
-{#          <li class="sidenav-item">#}
-{#            <a class="sidenav-link ripple-surface" href="{% url "kitchen:cook-list" %}" tabindex="1"> <i class="fas fa-paper-plane pr-3"></i>All cooks</a>#}
-{#          </li>#}
-{#          <li class="sidenav-item">#}
-{#            <a class="sidenav-link ripple-surface" href="{% url "kitchen:dish-list" %}" tabindex="1"> <i class="fas fa-paper-plane pr-3"></i>All dishes</a>#}
-{#          </li>#}
-{#          <li class="sidenav-item">#}
-{#            <a class="sidenav-link ripple-surface" href="{% url "kitchen:dish-type-list" %}" tabindex="1"> <i class="fas fa-paper-plane pr-3"></i>All dish types</a>#}
-{#          </li>#}
-{#        </ul>#}
-{#        <hr class="m-0">#}
-{#        <ul class="sidenav-menu">#}
-{#          {% if user.is_authenticated %}#}
-{#            <li class="sidenav-item">#}
-{#              <a href="{% url "logout" %}" class="sidenav-link ripple-surface" tabindex="1"> <i class="fas fa-user-astronaut pr-3"></i>Log out</a>#}
-{#            </li>#}
-{#          {% endif %}#}
-{#        </ul>#}
-{#      <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 495px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 318px;"></div></div></div>#}
-{#    </div>#}
-
-
-
-
-
-
-
-
-<div id="full-screen-example" class="sidenav bg-light sidenav-dark" data-color="dark" data-mode="side" data-hidden="false" data-scroll-container="#scrollContainer" style="width: 280px; height: 100vh; position: fixed; transition: all 0.3s linear 0s; transform: translateX(0%);">
-  <div class="mt-4">
-    <div id="header-content" class="pl-3">
-      <h4>
-        {% if user.is_authenticated %}
-          <span style="white-space: nowrap;">{{ user.username }}</span>
-        {% else %}
-          <a href="{% url "login" %}">Login</a>
-        {% endif %}
-      </h4>
-    </div>
-    <hr class="mb-0">
-  </div>
-  <div id="scrollContainer" class="ps ps--active-y" style="max-height: calc(100% - 245px); position: relative;">
-    <ul class="sidenav-menu">
-      <li class="sidenav-item">
-        <a class="sidenav-link ripple-surface" href="{% url "kitchen:index" %}" tabindex="1"> <i class="fas fa-envelope pr-3"></i>Home</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url "kitchen:index" %}">Home</a>
       </li>
-      <li class="sidenav-item">
-        <a class="sidenav-link ripple-surface" href="{% url "kitchen:cook-list" %}" tabindex="1"> <i class="fas fa-paper-plane pr-3"></i>All cooks</a>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url "kitchen:cook-list" %}">All cooks</a>
       </li>
-      <li class="sidenav-item">
-        <a class="sidenav-link ripple-surface" href="{% url "kitchen:dish-list" %}" tabindex="1"> <i class="fas fa-paper-plane pr-3"></i>All dishes</a>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url "kitchen:dish-list" %}">All dishes</a>
       </li>
-      <li class="sidenav-item">
-        <a class="sidenav-link ripple-surface" href="{% url "kitchen:dish-type-list" %}" tabindex="1"> <i class="fas fa-paper-plane pr-3"></i>All dish types</a>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url "kitchen:dish-type-list" %}">All dish types</a>
       </li>
     </ul>
-    <hr class="m-0">
-    <ul class="sidenav-menu">
+    <form class="form-inline my-2 my-lg-0">
       {% if user.is_authenticated %}
-        <li class="sidenav-item">
-          <a href="{% url "logout" %}" class="sidenav-link ripple-surface" tabindex="1"> <i class="fas fa-user-astronaut pr-3"></i>Log out</a>
-        </li>
+        <a class="navbar-brand" href="#">User: {{ user.username }}</a>
+          <a class="navbar-brand" href="{% url "logout" %}">Logout</a>
+      {% else %}
+          <a class="navbar-brand" href="{% url "login" %}">Login</a>
       {% endif %}
-    </ul>
-    <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 495px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 318px;"></div></div>
+    </form>
   </div>
-</div>
+</nav>

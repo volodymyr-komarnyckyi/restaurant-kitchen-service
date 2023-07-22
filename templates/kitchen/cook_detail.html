@@ -56,6 +56,12 @@
           <p><strong>Years of experience:</strong> {{ cook.years_of_experience }} </p>
         {% endif %}
         <p><strong>Is staff:</strong> {{ cook.is_staff }}</p>
+
+        {% if cook.photo %}
+          <img class="cook-image" src="{{ cook.photo.url }}" alt="{{ cook.username }} Photo" width="300" height="450">
+        {% else %}
+          <img class="cook-image" src="{% static 'images/cook.png' %}" alt="Default Cook Photo">
+        {% endif %}
       </div>
     </div>
 
