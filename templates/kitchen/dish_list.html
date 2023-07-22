@@ -1,49 +1,54 @@
 {#{% extends "base.html" %}#}
+{#{% load static %}#}
 {##}
 {#{% block content %}#}
-{#  <h1>#}
-{#    Dish List#}
-{#    <a style="float: right" class="btn btn-primary" href="{% url "kitchen:dish-create" %}">Create</a>#}
-{#  </h1>#}
+{#  <div class="container">#}
+{#    <div class="row">#}
+{#      <div class="col-md-8">#}
+{#        <h1>Dish List</h1>#}
+{#      </div>#}
+{#      <div class="col-md-4 text-right">#}
+{#        <a href="{% url "kitchen:dish-create" %}" class="btn btn-primary">Create New Dish</a>#}
+{#      </div>#}
+{#    </div>#}
 {##}
-{#  {% include "includes/search_form.html" %}#}
+{#    {% include "includes/search_form.html" %}#}
 {##}
-{#  {% if dish_list %}#}
-{#    <table class="table">#}
-{#      <tr>#}
-{#        <td>ID</td>#}
-{#        <td>Name</td>#}
-{#        <td>Price</td>#}
-{#        <td>Dish type</td>#}
-{#        <td>Cooks</td>#}
-{#      </tr>#}
-{##}
-{#      {% for dish in dish_list %}#}
-{#        <tr>#}
-{#          <td>#}
-{#            <a href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish.id }}</a>#}
-{#          </td>#}
-{#          <td>#}
-{#            {{ dish.name }}#}
-{#          </td>#}
-{#          <td>#}
-{#            {{ dish.price }}#}
-{#          </td>#}
-{#          <td>#}
-{#            {{ dish.dish_type.name }}#}
-{#          </td>#}
-{#          <td>#}
-{#            {% for cook in dish.cooks.all %}#}
-{#              <a href="{% url "kitchen:cook-detail" pk=cook.id %}">{{ cook.first_name }} {{ cook.last_name }}</a> <br>#}
+{#    {% if dish_list %}#}
+{#      <div class="table-responsive mt-4">#}
+{#        <table class="table table-bordered table-striped">#}
+{#          <thead>#}
+{#            <tr>#}
+{#              <th>ID</th>#}
+{#              <th>Name</th>#}
+{#              <th>Price</th>#}
+{#              <th>Dish Type</th>#}
+{#              <th>Cooks</th>#}
+{#            </tr>#}
+{#          </thead>#}
+{#          <tbody>#}
+{#            {% for dish in dish_list %}#}
+{#              <tr>#}
+{#                <td><a href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish.id }}</a></td>#}
+{#                <td>{{ dish.name }}</td>#}
+{#                <td>{{ dish.price }}</td>#}
+{#                <td>{{ dish.dish_type.name }}</td>#}
+{#                <td>#}
+{#                  {% for cook in dish.cooks.all %}#}
+{#                    <a href="{% url "kitchen:cook-detail" pk=cook.id %}">{{ cook.first_name }} {{ cook.last_name }}</a><br>#}
+{#                  {% empty %}#}
+{#                    No cooks for this dish.#}
+{#                  {% endfor %}#}
+{#                </td>#}
+{#              </tr>#}
 {#            {% endfor %}#}
-{#          </td>#}
-{#        </tr>#}
-{#      {% endfor %}#}
-{#    </table>#}
-{#  {% else %}#}
-{#    <p>There are no dishes in menu.</p>#}
-{#  {% endif %}#}
-{##}
+{#          </tbody>#}
+{#        </table>#}
+{#      </div>#}
+{#    {% else %}#}
+{#      <p class="mt-4">There are no dishes in the menu.</p>#}
+{#    {% endif %}#}
+{#  </div>#}
 {#{% endblock %}#}
 
 
@@ -51,6 +56,58 @@
 {% load static %}
 
 {% block content %}
+  <style>
+    .dish-list-container {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 220px);
+      grid-gap: 20px;
+      justify-content: space-between;
+    }
+
+    .dish-item {
+      background-color: #ffffff;
+      border: 1px solid #dcdcdc;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .dish-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .dish-details {
+      overflow: auto;
+      flex-grow: 1;
+    }
+
+    .dish-details p {
+      margin: 5px 0;
+    }
+
+    .dish-cooks {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .dish-cooks a {
+      display: block;
+      margin-bottom: 5px;
+      text-decoration: none;
+      color: #357ae8;
+    }
+
+    .dish-cooks a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
   <div class="container">
     <div class="row">
       <div class="col-md-8">
@@ -64,39 +121,31 @@
     {% include "includes/search_form.html" %}
 
     {% if dish_list %}
-      <div class="table-responsive mt-4">
-        <table class="table table-bordered table-striped">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Dish Type</th>
-              <th>Cooks</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for dish in dish_list %}
-              <tr>
-                <td><a href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish.id }}</a></td>
-                <td>{{ dish.name }}</td>
-                <td>{{ dish.price }}</td>
-                <td>{{ dish.dish_type.name }}</td>
-                <td>
-                  {% for cook in dish.cooks.all %}
-                    <a href="{% url "kitchen:cook-detail" pk=cook.id %}">{{ cook.first_name }} {{ cook.last_name }}</a><br>
-                  {% empty %}
-                    No cooks for this dish.
-                  {% endfor %}
-                </td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+      <div class="dish-list-container">
+        {% for dish in dish_list %}
+          <div class="dish-item">
+            <div class="dish-name">{{ dish.name }}</div>
+            <br>
+            <div class="dish-details">
+              <p><strong>Dish info:</strong></p>
+              <p><strong>ID:</strong> <a href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish.id }}</a></p>
+              <p><strong>Price:</strong> {{ dish.price }}</p>
+              <p><strong>Dish Type:</strong> {{ dish.dish_type.name }}</p>
+            </div>
+            <br>
+            <div class="dish-cooks">
+              <p><strong>Cooks:</strong></p>
+              {% for cook in dish.cooks.all %}
+                <a href="{% url "kitchen:cook-detail" pk=cook.id %}">{{ cook.first_name }} {{ cook.last_name }}</a>
+              {% empty %}
+                No cooks for this dish.
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
       </div>
     {% else %}
       <p class="mt-4">There are no dishes in the menu.</p>
     {% endif %}
   </div>
 {% endblock %}
-
