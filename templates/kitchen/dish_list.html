@@ -2,58 +2,6 @@
 {% load static %}
 
 {% block content %}
-  <style>
-    .dish-list-container {
-      margin-top: 35px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 220px);
-      grid-gap: 20px;
-      justify-content: space-between;
-    }
-
-    .dish-item {
-      background-color: #ffffff;
-      border: 1px solid #dcdcdc;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .dish-name {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .dish-details {
-      overflow: auto;
-      flex-grow: 1;
-    }
-
-    .dish-details p {
-      margin: 5px 0;
-    }
-
-    .dish-cooks {
-      font-size: 14px;
-      margin-top: 10px;
-    }
-
-    .dish-cooks a {
-      display: block;
-      margin-bottom: 5px;
-      text-decoration: none;
-      color: #357ae8;
-    }
-
-    .dish-cooks a:hover {
-      text-decoration: underline;
-    }
-  </style>
-
   <div class="container">
     <div class="row">
       <div class="col-md-8">

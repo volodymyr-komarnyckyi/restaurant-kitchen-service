@@ -2,67 +2,6 @@
 {% load static %}
 
 {% block content %}
-  <style>
-    .dish-type-container {
-      margin-top: 35px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 220px);
-      grid-gap: 20px;
-      justify-content: space-between;
-    }
-
-    .dish-type-item {
-      background-color: #ffffff;
-      border: 1px solid #dcdcdc;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .dish-type-name {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .dish-name {
-      overflow: auto;
-      flex-grow: 1;
-    }
-
-    .dish-type-buttons {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 10px;
-    }
-
-    .dish-type-buttons a {
-      padding: 8px 12px;
-      border-radius: 4px;
-      text-decoration: none;
-      color: #ffffff;
-      cursor: pointer;
-      transition: background-color 0.2s;
-      font-size: 14px;
-      margin-left: 10px;
-    }
-
-    .btn-update {
-      background-color: #4285F4;
-    }
-
-    .btn-delete {
-      background-color: #DC3545;
-    }
-
-    .btn-update:hover,
-    .btn-delete:hover {
-      background-color: #357ae8;
-    }
-  </style>
-
   <div class="container">
     <div class="row">
       <div class="col-md-8">
@@ -80,7 +19,7 @@
         {% for dish_type in dish_type_list %}
           <div class="dish-type-item">
             <div class="dish-type-name">{{ dish_type.name }}</div>
-            <div class="dish-name">
+            <div class="dish-type-list-name">
               {% for dish in dish_type.dishes.all %}
                 <hr>
                 <p>Dishes:</p>

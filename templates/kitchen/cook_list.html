@@ -2,66 +2,6 @@
 {% load static %}
 
 {% block content %}
-  <style>
-    .cook-list-container {
-      margin-top: 35px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, 220px);
-      grid-gap: 20px;
-      justify-content: space-between;
-    }
-
-    .cook-item {
-      background-color: #ffffff;
-      border: 1px solid #dcdcdc;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cook-name {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .cook-details {
-      overflow: auto;
-      flex-grow: 1;
-    }
-
-    .cook-details p {
-      margin: 5px 0;
-    }
-
-    .cook-buttons {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 10px;
-    }
-
-    .cook-buttons a {
-      padding: 8px 12px;
-      border-radius: 4px;
-      text-decoration: none;
-      color: #ffffff;
-      cursor: pointer;
-      transition: background-color 0.2s;
-      font-size: 14px;
-      margin-left: 10px;
-    }
-
-    .btn-cook-details {
-      background-color: #4285F4;
-    }
-
-    .btn-cook-details:hover {
-      background-color: #357ae8;
-    }
-  </style>
-
   <div class="container">
     <div class="row">
       <div class="col-md-8">
