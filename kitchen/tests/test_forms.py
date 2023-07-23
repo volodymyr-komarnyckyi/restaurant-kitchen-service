@@ -23,6 +23,7 @@ class CookCreationFormTest(TestCase):
         }
         form = CookCreationForm(data=form_data)
         self.assertTrue(form.is_valid())
+        self.assertEqual(form.cleaned_data, form_data)
 
     def test_invalid_form(self):
         form_data = {
@@ -36,6 +37,7 @@ class CookCreationFormTest(TestCase):
         }
         form = CookCreationForm(data=form_data)
         self.assertFalse(form.is_valid())
+        self.assertNotEqual(form.cleaned_data, form_data)
 
 
 class DishFormTest(TestCase):

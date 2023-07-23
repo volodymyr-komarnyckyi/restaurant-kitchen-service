@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 
 from kitchen.models import DishType, Dish, Cook
@@ -11,7 +12,7 @@ class DishTypeModelTest(TestCase):
 
 class CookModelTest(TestCase):
     def test_str_representation(self):
-        cook = Cook.objects.create(
+        cook = get_user_model().objects.create_user(
             username="chef123",
             first_name="John",
             last_name="Doe"
@@ -22,7 +23,7 @@ class CookModelTest(TestCase):
 class DishModelTest(TestCase):
     def test_str_representation(self):
         dish_type = DishType.objects.create(name="Dessert")
-        cook = Cook.objects.create(
+        cook = get_user_model().objects.create_user(
             username="baker12",
             first_name="Alice",
             last_name="Smith"
