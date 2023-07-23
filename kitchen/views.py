@@ -9,7 +9,7 @@ from kitchen.forms import (
     DishForm,
     DishSearchForm,
     CookSearchForm,
-    DishTypeSearchForm
+    DishTypeSearchForm,
 )
 from kitchen.models import Dish, Cook, DishType
 
@@ -27,7 +27,7 @@ def index(request):
         "num_dishes": num_dishes,
         "num_cooks": num_cooks,
         "num_dish_types": num_dish_types,
-        "num_visits": num_visits + 1
+        "num_visits": num_visits + 1,
     }
 
     return render(request, "kitchen/index.html", context=context)
@@ -44,9 +44,7 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
 
         name = self.request.GET.get("name", "")
 
-        context["search_form"] = DishTypeSearchForm(initial={
-            "name": name
-        })
+        context["search_form"] = DishTypeSearchForm(initial={"name": name})
 
         return context
 
@@ -56,9 +54,7 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
         form = DishSearchForm(self.request.GET)
 
         if form.is_valid():
-            return queryset.filter(
-                name__icontains=form.cleaned_data["name"]
-            )
+            return queryset.filter(name__icontains=form.cleaned_data["name"])
 
         return queryset
 
@@ -92,9 +88,7 @@ class DishListView(LoginRequiredMixin, generic.ListView):
 
         name = self.request.GET.get("name", "")
 
-        context["search_form"] = DishSearchForm(initial={
-            "name": name
-        })
+        context["search_form"] = DishSearchForm(initial={"name": name})
 
         return context
 
@@ -104,9 +98,7 @@ class DishListView(LoginRequiredMixin, generic.ListView):
         form = DishSearchForm(self.request.GET)
 
         if form.is_valid():
-            return queryset.filter(
-                name__icontains=form.cleaned_data["name"]
-            )
+            return queryset.filter(name__icontains=form.cleaned_data["name"])
 
         return queryset
 
@@ -154,9 +146,9 @@ class CookListView(LoginRequiredMixin, generic.ListView):
 
         last_name = self.request.GET.get("last_name", "")
 
-        context["search_form"] = CookSearchForm(initial={
-            "last_name": last_name
-        })
+        context["search_form"] = CookSearchForm(
+            initial={"last_name": last_name}
+        )
 
         return context
 
@@ -191,7 +183,7 @@ class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
         "last_name",
         "email",
         "years_of_experience",
-        "photo"
+        "photo",
     ]
     success_url = reverse_lazy("kitchen:cook-list")
 

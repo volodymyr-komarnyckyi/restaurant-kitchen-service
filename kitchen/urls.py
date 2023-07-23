@@ -37,13 +37,13 @@ urlpatterns = [
     path(
         "dish-types/<int:pk>/update",
         DishTypeUpdateView.as_view(),
-        name="dish-type-update"
+        name="dish-type-update",
     ),
 
     path(
         "dish-types/<int:pk>/delete",
         DishTypeDeleteView.as_view(),
-        name="dish-type-delete"
+        name="dish-type-delete",
     ),
 
     path(
@@ -79,7 +79,7 @@ urlpatterns = [
     path(
         "dishes/<int:pk>/update-cook/",
         DishUpdateCookView.as_view(),
-        name="dish-update-cook"
+        name="dish-update-cook",
     ),
 
     path(

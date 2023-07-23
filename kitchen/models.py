@@ -15,7 +15,7 @@ class DishType(models.Model):
 
 class Cook(AbstractUser):
     years_of_experience = models.IntegerField(null=True, blank=True)
-    photo = models.ImageField(upload_to='cooks/', blank=True, null=True)
+    photo = models.ImageField(upload_to="cooks/", blank=True, null=True)
 
     class Meta:
         ordering = ["username"]
@@ -29,18 +29,19 @@ class Dish(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     dish_type = models.ForeignKey(
-        DishType,
-        on_delete=models.CASCADE,
-        related_name="dishes"
+        DishType, on_delete=models.CASCADE, related_name="dishes"
     )
     cooks = models.ManyToManyField(
-        settings.AUTH_USER_MODEL, related_name="dishes"
+        settings.AUTH_USER_MODEL,
+        related_name="dishes"
     )
-    dish_photo = models.ImageField(upload_to='dishes/', blank=True, null=True)
+    dish_photo = models.ImageField(upload_to="dishes/", blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
 
     def __str__(self):
-        return (f"{self.name} "
-                f"(price: {self.price}, dish type: {self.dish_type.name})")
+        return (
+            f"{self.name}"
+            f"(price: {self.price}, dish type: {self.dish_type.name})"
+        )

@@ -13,7 +13,9 @@ class Migration(migrations.Migration):
             model_name="cook",
             name="cook_photo",
             field=models.ImageField(
-                blank=True, null=True, upload_to="images/"
+                blank=True,
+                null=True,
+                upload_to="images/"
             ),
         ),
     ]

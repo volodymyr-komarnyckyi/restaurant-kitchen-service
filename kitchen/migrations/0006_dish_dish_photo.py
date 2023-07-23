@@ -13,7 +13,9 @@ class Migration(migrations.Migration):
             model_name="dish",
             name="dish_photo",
             field=models.ImageField(
-                blank=True, null=True, upload_to="dishes/"
+                blank=True,
+                null=True,
+                upload_to="dishes/"
             ),
         ),
     ]

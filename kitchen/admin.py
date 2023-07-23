@@ -15,17 +15,24 @@ class DishAdmin(admin.ModelAdmin):
 class CookAdmin(UserAdmin):
     list_display = UserAdmin.list_display + ("years_of_experience",)
     fieldsets = UserAdmin.fieldsets + (
-        ("Additional info", {"fields": ("years_of_experience", "photo",)}),)
+        (
+            "Additional info",
+            {
+                "fields": (
+                    "years_of_experience",
+                    "photo",
+                )
+            },
+        ),
+    )
     add_fieldsets = UserAdmin.add_fieldsets + (
         (
-            "Additional info", {
+            "Additional info",
+            {
                 "fields": (
-                    "first_name",
-                    "last_name",
-                    "years_of_experience",
-                    "photo"
+                    "first_name", "last_name", "years_of_experience", "photo"
                 )
-            }
+            },
         ),
     )
 

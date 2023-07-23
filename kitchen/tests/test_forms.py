@@ -6,7 +6,7 @@ from kitchen.forms import (
     DishForm,
     CookSearchForm,
     DishSearchForm,
-    DishTypeSearchForm
+    DishTypeSearchForm,
 )
 
 
@@ -44,14 +44,10 @@ class DishFormTest(TestCase):
     def test_valid_form(self):
         dish_type = DishType.objects.create(name="Main Course")
         cook1 = Cook.objects.create(
-            username="cook1",
-            first_name="John",
-            last_name="Doe"
+            username="cook1", first_name="John", last_name="Doe"
         )
         cook2 = Cook.objects.create(
-            username="cook2",
-            first_name="Tim",
-            last_name="Black"
+            username="cook2", first_name="Tim", last_name="Black"
         )
 
         form_data = {

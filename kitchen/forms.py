@@ -5,14 +5,13 @@ from kitchen.models import Cook, Dish
 
 
 class CookCreationForm(UserCreationForm):
-
     class Meta:
         model = Cook
         fields = UserCreationForm.Meta.fields + (
             "years_of_experience",
             "first_name",
             "last_name",
-            "photo"
+            "photo",
         )
 
 
@@ -20,7 +19,7 @@ class DishForm(forms.ModelForm):
     cooks = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple,
-        required=False
+        required=False,
     )
 
     class Meta:
@@ -33,7 +32,7 @@ class CookSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by last name.."})
+        widget=forms.TextInput(attrs={"placeholder": "Search by last name.."}),
     )
 
 
@@ -42,7 +41,7 @@ class DishSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by name..."})
+        widget=forms.TextInput(attrs={"placeholder": "Search by name..."}),
     )
 
 
@@ -51,5 +50,5 @@ class DishTypeSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by name..."})
+        widget=forms.TextInput(attrs={"placeholder": "Search by name..."}),
     )
