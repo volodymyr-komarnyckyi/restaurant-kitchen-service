@@ -20,7 +20,7 @@
       <div class="dish-list-container">
         {% for dish in dish_list %}
           <div class="dish-item">
-            <div class="dish-name">{{ dish.name }}</div>
+            <div class="dish-name"><a href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish.name }}</a></div>
             {% if dish.dish_photo %}
               <img class="cook-image" src="{{ dish.dish_photo.url }}" alt="{{ dish.name }} Photo" width="180" height="120">
             {% else %}
@@ -29,7 +29,7 @@
             <br>
             <div class="dish-details">
               <p><strong>Dish info:</strong></p>
-              <p><strong>ID:</strong> <a href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish.id }}</a></p>
+              <p><strong>ID:</strong>{{ dish.id }}</p>
               <p><strong>Price:</strong> {{ dish.price }}</p>
               <p><strong>Dish Type:</strong> {{ dish.dish_type.name }}</p>
             </div>

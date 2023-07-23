@@ -163,8 +163,16 @@ body {
   margin-bottom: 10px;
 }
 
+.dish-name a {
+  color: #000;
+}
+
 .dish-details {
   font-size: 16px;
+}
+
+.dish-details a {
+  color: #000;
 }
 
 .dish-cooks {
@@ -175,7 +183,7 @@ body {
   display: block;
   margin-bottom: 5px;
   text-decoration: none;
-  color: #357ae8;
+  color: #000;
 }
 
 .dish-cooks a:hover {
@@ -267,6 +275,10 @@ body {
   flex-grow: 1;
 }
 
+.dish-type-list-name a {
+  color: #000;
+}
+
 .dish-type-buttons {
   display: flex;
   justify-content: flex-end;
@@ -327,7 +339,7 @@ body {
 
 .form-inline .navbar-brand {
   font-size: 18px;
-  color: #333;
+  color: #fff;
   text-decoration: none;
 }
 
