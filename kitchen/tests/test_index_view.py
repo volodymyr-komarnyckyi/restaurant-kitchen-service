@@ -27,4 +27,5 @@ class IndexViewTest(TestCase):
         self.client.logout()
         url = reverse("kitchen:index")
         response = self.client.get(url)
-        self.assertRedirects(response, reverse("login") + "?next=" + url)
+        login_url = reverse("login")
+        self.assertRedirects(response, login_url + "?next=" + url)

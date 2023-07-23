@@ -42,6 +42,6 @@ class Dish(models.Model):
 
     def __str__(self):
         return (
-            f"{self.name}"
+            f"{self.name} "
             f"(price: {self.price}, dish type: {self.dish_type.name})"
         )
