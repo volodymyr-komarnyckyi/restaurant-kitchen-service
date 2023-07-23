@@ -1,3 +1,49 @@
+{#{% extends "base.html" %}#}
+{#{% load static %}#}
+{##}
+{#{% block content %}#}
+{#  <div class="container">#}
+{#    <div class="row">#}
+{#      <div class="col-md-8">#}
+{#        <h1>Dish Type List</h1>#}
+{#      </div>#}
+{#      <div class="col-md-4 text-right">#}
+{#        <a href="{% url 'kitchen:dish-type-create' %}" class="btn btn-primary">Create New Dish Type</a>#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#    <div class="search">#}
+{#      {% include "includes/search_form.html" %}#}
+{#    </div>#}
+{##}
+{#    {% if dish_type_list %}#}
+{#      <div class="dish-type-container">#}
+{#        {% for dish_type in dish_type_list %}#}
+{#          <div class="dish-type-item">#}
+{#            <div class="dish-type-name">{{ dish_type.name }}</div>#}
+{#            <div class="dish-type-list-name">#}
+{#              {% for dish in dish_type.dishes.all %}#}
+{#                <hr>#}
+{#                <p>Dishes:</p>#}
+{#                <p><strong>Name:</strong> <a href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish.name }}</a></p>#}
+{#              {% empty %}#}
+{#                <p>There are no dishes!</p>#}
+{#              {% endfor %}#}
+{#            </div>#}
+{#            <div class="dish-type-buttons">#}
+{#              <a href="{% url 'kitchen:dish-type-update' pk=dish_type.id %}" class="btn btn-update">Update</a>#}
+{#              <a href="{% url 'kitchen:dish-type-delete' pk=dish_type.id %}" class="btn btn-delete">Delete</a>#}
+{#            </div>#}
+{#          </div>#}
+{#        {% endfor %}#}
+{#      </div>#}
+{#    {% else %}#}
+{#      <p class="mt-4">There are no dish types in the menu.</p>#}
+{#    {% endif %}#}
+{#  </div>#}
+{#{% endblock %}#}
+
+
 {% extends "base.html" %}
 {% load static %}
 
@@ -12,7 +58,9 @@
       </div>
     </div>
 
-    {% include "includes/search_form.html" %}
+    <div class="search">
+      {% include "includes/search_form.html" %}
+    </div>
 
     {% if dish_type_list %}
       <div class="dish-type-container">
@@ -40,6 +88,3 @@
     {% endif %}
   </div>
 {% endblock %}
-
-
-

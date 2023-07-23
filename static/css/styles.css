@@ -142,43 +142,33 @@ body {
 #full-screen-example {
   width: 280px;
 }
+
 .dish-list-container {
-  margin-top: 35px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 220px);
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .dish-item {
-  background-color: #ffffff;
-  border: 1px solid #dcdcdc;
-  border-radius: 8px;
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  background-color: #DBCDA8;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  border-radius: 5px;
 }
 
 .dish-name {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .dish-details {
-  overflow: auto;
-  flex-grow: 1;
-}
-
-.dish-details p {
-  margin: 5px 0;
+  font-size: 16px;
 }
 
 .dish-cooks {
-  font-size: 14px;
-  margin-top: 10px;
+  font-size: 16px;
 }
 
 .dish-cooks a {
@@ -193,17 +183,16 @@ body {
 }
 
 .cook-list-container {
-  margin-top: 35px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 220px);
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .cook-item {
-  background-color: #ffffff;
+  width: calc(33.33% - 20px);
+  background-color: #DBCDA8;
   border: 1px solid #dcdcdc;
-  border-radius: 8px;
+  border-radius:5px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -211,7 +200,7 @@ body {
 }
 
 .cook-name {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -251,31 +240,30 @@ body {
 }
 
 .dish-type-container {
-  margin-top: 35px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 220px);
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .dish-type-item {
-  background-color: #ffffff;
-  border: 1px solid #dcdcdc;
-  border-radius: 8px;
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  background-color: #DBCDA8;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .dish-type-name {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .dish-type-list-name {
-  overflow: auto;
+  font-size: 16px;
   flex-grow: 1;
 }
 
@@ -345,4 +333,8 @@ body {
 
 .form-inline .navbar-brand:hover {
   color: #007bff;
+}
+
+.search {
+  margin-bottom: 10px;
 }
