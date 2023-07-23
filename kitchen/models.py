@@ -33,11 +33,14 @@ class Dish(models.Model):
         on_delete=models.CASCADE,
         related_name="dishes"
     )
-    cooks = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="dishes")
+    cooks = models.ManyToManyField(
+        settings.AUTH_USER_MODEL, related_name="dishes"
+    )
     dish_photo = models.ImageField(upload_to='dishes/', blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
 
     def __str__(self):
-        return f"{self.name} (price: {self.price}, dish type: {self.dish_type.name})"
+        return (f"{self.name} "
+                f"(price: {self.price}, dish type: {self.dish_type.name})")

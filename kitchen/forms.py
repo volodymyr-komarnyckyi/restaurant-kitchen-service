@@ -8,7 +8,12 @@ class CookCreationForm(UserCreationForm):
 
     class Meta:
         model = Cook
-        fields = UserCreationForm.Meta.fields + ("years_of_experience", "first_name", "last_name", "photo")
+        fields = UserCreationForm.Meta.fields + (
+            "years_of_experience",
+            "first_name",
+            "last_name",
+            "photo"
+        )
 
 
 class DishForm(forms.ModelForm):
