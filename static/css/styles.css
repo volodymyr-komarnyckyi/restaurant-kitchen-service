@@ -3,48 +3,25 @@ body {
   background-color: #f8f8f8;
   margin: 0;
   padding: 0;
+  background-image: url("../images/restaurant.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .container-fluid {
   padding: 20px;
 }
 
-.col-sm-2 {
+.row-sm-2 {
   background-color: #f0f0f0;
-  min-height: 100vh;
+  min-width: 100vh;
+  margin-bottom: 15px;
 }
 
-.sidebar-header {
-  background-color: #333;
-  color: #fff;
-  padding: 15px;
-  text-align: center;
-}
-
-.sidebar-navigation {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-}
-
-.sidebar-navigation li {
-  padding: 10px;
-}
-
-.sidebar-navigation li a {
-  color: #333;
-  text-decoration: none;
-  display: block;
-}
-
-.sidebar-navigation li a:hover {
-  background-color: #ddd;
-}
-
-.col-sm-10 {
-  background-color: #fff;
+.row-sm-10 {
   padding: 20px;
-  min-height: 100vh;
+  min-width: 100vh;
 }
 
 h1 {
@@ -91,47 +68,6 @@ h1 {
 .pagination .active {
   background-color: #333;
   color: #fff;
-}
-
-.sidebar-nav {
-  margin-top: 20px;
-  padding: 0;
-  list-style: none;
-}
-
-.sidebar-nav .list-group-item {
-  border: none;
-  background-color: transparent;
-  text-align: center;
-  font-size: 18px;
-}
-
-.sidebar-nav .list-group-item a {
-  color: #333;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.sidebar-nav .list-group-item a:hover {
-  color: #007bff;
-}
-
-.sidebar-nav .active {
-  font-weight: bold;
-  background-color: #007bff;
-}
-
-.sidebar-nav .active a {
-  color: #fff;
-}
-
-.sidebar-header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
 }
 
 .hr-divider {
@@ -371,4 +307,42 @@ body {
 .btn-update:hover,
 .btn-delete:hover {
   background-color: #357ae8;
+}
+
+.navbar {
+  background-color: #ccc;
+  width: 100%;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.navbar-nav .nav-link {
+  font-size: 18px;
+  color: #333;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+  color: #007bff;
+}
+
+.form-inline .navbar-brand {
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+}
+
+.form-inline .navbar-brand:hover {
+  color: #007bff;
 }
