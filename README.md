@@ -2,9 +2,9 @@
 
 Django project for managing cooks, dishes and dish types in a restaurant
 
-[Restaurant project deployed to Render](PASTE_LINK_HERE)
+[Restaurant project deployed to Render](https://restaurant-mate-n0wt.onrender.com/)
 
-##Installation
+## Installation
 
 Python3 must be already installed
 
