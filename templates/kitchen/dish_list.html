@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1>Dish List</h1>
+      </div>
+      <div class="col-md-4 text-right">
+        <a href="{% url "kitchen:dish-create" %}" class="btn btn-primary">Create New Dish</a>
+      </div>
+    </div>
+
+    <div class="search">
+      {% include "includes/search_form.html" %}
+    </div>
+
+    {% if dish_list %}
+      <div class="dish-list-container">
+        {% for dish in dish_list %}
+          <div class="dish-item">
+            <div class="dish-name"><a href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish.name }}</a></div>
+            {% if dish.dish_photo %}
+              <img class="cook-image" src="{{ dish.dish_photo.url }}" alt="{{ dish.name }} Photo" width="180" height="120">
+            {% else %}
+              <img class="cook-image" src="{% static 'images/empty.jpg' %}" alt="Default Dish Photo" width="180" height="120">
+            {% endif %}
+            <br>
+            <div class="dish-details">
+              <p><strong>Dish info:</strong></p>
+              <p><strong>ID:</strong>{{ dish.id }}</p>
+              <p><strong>Price:</strong> {{ dish.price }}</p>
+              <p><strong>Dish Type:</strong> {{ dish.dish_type.name }}</p>
+            </div>
+            <br>
+            <div class="dish-cooks">
+              <p><strong>Cooks:</strong></p>
+              {% for cook in dish.cooks.all %}
+                <a href="{% url "kitchen:cook-detail" pk=cook.id %}">{{ cook.first_name }} {{ cook.last_name }}</a>
+              {% empty %}
+                No cooks for this dish.
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="mt-4">There are no dishes in the menu.</p>
+    {% endif %}
+  </div>
+{% endblock %}
