@@ -17,6 +17,7 @@ class CookCreationFormTest(TestCase):
             "password1": "testpassword123",
             "password2": "testpassword123",
             "years_of_experience": 5,
+            "email": "john@gmail.com",
             "first_name": "John",
             "last_name": "Doe",
             "photo": None,
