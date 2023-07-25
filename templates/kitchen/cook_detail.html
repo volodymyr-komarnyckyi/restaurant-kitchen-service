@@ -22,7 +22,7 @@
         <p><strong>Is staff:</strong> {{ cook.is_staff }}</p>
 
         {% if cook.photo %}
-          <img class="cook-image" src="{{ cook.photo.url }}" alt="{{ cook.username }} Photo" width="350" height="450">
+          <img class="cook-image" src="{{ cook.photo }}" alt="{{ cook.username }} Photo" width="350" height="450">
         {% else %}
           <img class="cook-image" src="{% static 'images/cook.png' %}" alt="Default Cook Photo">
         {% endif %}
