@@ -24,6 +24,13 @@ python manage.py runserver #starts Django Server
 * Managing cooks, dishes & dish types directly from website interface
 * Powerful admin panel for advanced managing
 
+## Default user for website
+
+```
+username: Volodymyr_cook
+password: Volodymyr8204
+```
+
 ## Demo
 
 ![Website Interface](demo.png)
