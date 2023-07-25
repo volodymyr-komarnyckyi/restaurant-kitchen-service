@@ -21,7 +21,7 @@
         {% for cook in cook_list %}
           <div class="cook-item">
             {% if cook.photo %}
-              <img class="cook-image" src="{{ cook.photo.url }}" alt="{{ cook.username }} Photo" width="200" height="270">
+              <img class="cook-image" src="{{ cook.photo }}" alt="{{ cook.username }} Photo" width="200" height="270">
             {% else %}
               <img class="cook-image" src="{% static 'images/cook.png' %}" alt="Default Cook Photo">
             {% endif %}
