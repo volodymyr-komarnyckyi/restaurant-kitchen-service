@@ -11,6 +11,7 @@ class CookCreationForm(UserCreationForm):
             "years_of_experience",
             "first_name",
             "last_name",
+            "email",
             "photo",
         )
 
