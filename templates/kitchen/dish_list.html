@@ -22,7 +22,7 @@
           <div class="dish-item">
             <div class="dish-name"><a href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish.name }}</a></div>
             {% if dish.dish_photo %}
-              <img class="cook-image" src="{{ dish.dish_photo.url }}" alt="{{ dish.name }} Photo" width="180" height="120">
+              <img class="cook-image" src="{{ dish.dish_photo }}" alt="{{ dish.name }} Photo" width="180" height="120">
             {% else %}
               <img class="cook-image" src="{% static 'images/empty.jpg' %}" alt="Default Dish Photo" width="180" height="120">
             {% endif %}
