@@ -35,7 +35,7 @@ class Dish(models.Model):
         settings.AUTH_USER_MODEL,
         related_name="dishes"
     )
-    dish_photo = models.ImageField(upload_to="dishes/", blank=True, null=True)
+    dish_photo = models.URLField(blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
