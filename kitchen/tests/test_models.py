@@ -13,7 +13,7 @@ class DishTypeModelTest(TestCase):
 class CookModelTest(TestCase):
     def test_str_representation(self):
         cook = get_user_model().objects.create_user(
-            email="chef123", first_name="John", last_name="Doe"
+            username="chef123", first_name="John", last_name="Doe"
         )
         self.assertEqual(str(cook), "chef123 (John Doe)")
 
@@ -22,7 +22,7 @@ class DishModelTest(TestCase):
     def test_str_representation(self):
         dish_type = DishType.objects.create(name="Dessert")
         cook = get_user_model().objects.create_user(
-            email="baker12", first_name="Alice", last_name="Smith"
+            username="baker12", first_name="Alice", last_name="Smith"
         )
         dish = Dish.objects.create(
             name="Chocolate Cake",

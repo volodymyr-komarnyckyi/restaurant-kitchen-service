@@ -13,7 +13,7 @@ from kitchen.forms import (
 class CookCreationFormTest(TestCase):
     def test_valid_form(self):
         form_data = {
-            "email": "testuser",
+            "username": "testuser",
             "password1": "testpassword123",
             "password2": "testpassword123",
             "years_of_experience": 5,
@@ -28,7 +28,7 @@ class CookCreationFormTest(TestCase):
 
     def test_invalid_form(self):
         form_data = {
-            "email": "",
+            "username": "",
             "password1": "testpassword123",
             "password2": "testpassword123",
             "years_of_experience": 5,
@@ -45,10 +45,16 @@ class DishFormTest(TestCase):
     def test_valid_form(self):
         dish_type = DishType.objects.create(name="Main Course")
         cook1 = Cook.objects.create(
-            email="cook1", first_name="John", last_name="Doe"
+            username="cook1",
+            first_name="John",
+            last_name="Doe",
+            email="john@gmail.com"
         )
         cook2 = Cook.objects.create(
-            email="cook2", first_name="Tim", last_name="Black"
+            username="cook2",
+            first_name="Tim",
+            last_name="Black",
+            email="tim@gmail.com"
         )
 
         form_data = {

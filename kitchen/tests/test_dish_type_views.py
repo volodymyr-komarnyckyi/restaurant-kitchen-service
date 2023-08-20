@@ -9,9 +9,9 @@ class DishTypeListViewTest(TestCase):
     def setUp(self):
         self.client = Client()
         self.user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
-        self.client.login(email="testuser", password="testpassword")
+        self.client.login(username="testuser", password="testpassword")
         self.dish_type = DishType.objects.create(name="Main Course")
 
     def test_dish_type_list_view(self):
@@ -31,9 +31,9 @@ class DishTypeCreateViewTest(TestCase):
     def setUp(self):
         self.client = Client()
         self.user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
-        self.client.login(email="testuser", password="testpassword")
+        self.client.login(username="testuser", password="testpassword")
 
     def test_dish_type_create_view(self):
         url = reverse("kitchen:dish-type-create")
@@ -46,9 +46,9 @@ class DishTypeCreateViewTest(TestCase):
 class DishTypeDeleteViewTestCase(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
-        self.client.login(email="testuser", password="testpassword")
+        self.client.login(username="testuser", password="testpassword")
 
         self.dish_type = DishType.objects.create(name="Salad")
 
@@ -63,9 +63,9 @@ class DishTypeDeleteViewTestCase(TestCase):
 class DishTypeUpdateViewTestCase(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
-        self.client.login(email="testuser", password="testpassword")
+        self.client.login(username="testuser", password="testpassword")
 
         self.dish_type = DishType.objects.create(name="Salad")
 

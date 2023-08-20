@@ -9,9 +9,9 @@ class DishListViewTest(TestCase):
     def setUp(self):
         self.client = Client()
         self.user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
-        self.client.login(email="testuser", password="testpassword")
+        self.client.login(username="testuser", password="testpassword")
         self.dish_type = DishType.objects.create(name="Main Course")
         self.dish1 = Dish.objects.create(
             name="Dish 1",
@@ -44,7 +44,7 @@ class DishListViewTest(TestCase):
 class DishCreateViewTestCase(TestCase):
     def setUp(self) -> None:
         user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
         self.client.force_login(user)
 
@@ -68,9 +68,9 @@ class DishCreateViewTestCase(TestCase):
 class DishDetailViewTestCase(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
-        self.client.login(email="testuser", password="testpassword")
+        self.client.login(username="testuser", password="testpassword")
 
         self.dish_type = DishType.objects.create(name="Main Course")
 
@@ -103,7 +103,7 @@ class DishUpdateViewTestCase(TestCase):
 
     def setUp(self):
         self.user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
 
     def test_dish_update_view_get(self):
@@ -127,7 +127,7 @@ class DishDeleteViewTestCase(TestCase):
 
     def setUp(self):
         self.user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
 
     def test_dish_delete_view_get(self):
@@ -157,7 +157,7 @@ class DishDeleteViewTestCase(TestCase):
 class DishUpdateCookViewTestCase(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
         dish_type = DishType.objects.create(name="dish_type")
         self.dish = Dish.objects.create(

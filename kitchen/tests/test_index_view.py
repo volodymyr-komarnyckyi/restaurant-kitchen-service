@@ -7,9 +7,9 @@ class IndexViewTest(TestCase):
     def setUp(self):
         self.client = Client()
         self.user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
-        self.client.login(email="testuser", password="testpassword")
+        self.client.login(username="testuser", password="testpassword")
 
     def test_index_view(self):
         url = reverse("kitchen:index")

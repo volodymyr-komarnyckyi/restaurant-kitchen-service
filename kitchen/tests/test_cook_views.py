@@ -10,14 +10,20 @@ class CookListViewTest(TestCase):
     def setUp(self):
         self.client = Client()
         self.user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
         self.client.force_login(self.user)
         self.cook1 = get_user_model().objects.create_user(
-            email="cook1", first_name="John", last_name="Doe"
+            username="cook1",
+            first_name="John",
+            last_name="Doe",
+            email="john@gmail.com"
         )
         self.cook2 = get_user_model().objects.create_user(
-            email="cook2", first_name="Alice", last_name="Smith"
+            username="cook2",
+            first_name="Alice",
+            last_name="Smith",
+            email="alice@gmail.com"
         )
 
     def test_cook_list_view(self):
@@ -46,7 +52,7 @@ class CookDetailViewTestCase(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.cook = get_user_model().objects.create(
-            email="testcook",
+            username="testcook",
             first_name="John",
             last_name="Doe",
             email="test@example.com",
@@ -55,7 +61,7 @@ class CookDetailViewTestCase(TestCase):
 
     def setUp(self):
         self.user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
 
     def test_cook_detail_view(self):
@@ -78,7 +84,7 @@ class CookDetailViewTestCase(TestCase):
 class CookCreateViewTestCase(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
 
     def test_cook_create_view_get(self):
@@ -101,7 +107,7 @@ class CookCreateViewTestCase(TestCase):
         url = reverse("kitchen:cook-create")
 
         data = {
-            "email": "newcook",
+            "username": "newcook",
             "first_name": "New",
             "last_name": "Cook",
             "email": "newcook@example.com",
@@ -114,7 +120,7 @@ class CookCreateViewTestCase(TestCase):
 
         self.assertEqual(response.status_code, 302)
 
-        self.assertTrue(Cook.objects.filter(email="newcook").exists())
+        self.assertTrue(Cook.objects.filter(username="newcook").exists())
 
         self.assertRedirects(response, reverse("kitchen:cook-list"))
 
@@ -122,10 +128,10 @@ class CookCreateViewTestCase(TestCase):
 class CookUpdateViewTestCase(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
         self.cook = Cook.objects.create(
-            email="cook1",
+            username="cook1",
             first_name="John",
             last_name="Doe",
             email="john@example.com",
@@ -143,7 +149,7 @@ class CookUpdateViewTestCase(TestCase):
 
     def test_cook_update_view_post(self):
         data = {
-            "email": "updated_cook",
+            "username": "updated_cook",
             "first_name": "Updated",
             "last_name": "Cook",
             "email": "updated_cook@example.com",
@@ -152,7 +158,7 @@ class CookUpdateViewTestCase(TestCase):
         response = self.client.post(self.url, data)
         self.assertEqual(response.status_code, 302)
         self.cook.refresh_from_db()
-        self.assertEqual(self.cook.email, "updated_cook")
+        self.assertEqual(self.cook.username, "updated_cook")
         self.assertEqual(self.cook.first_name, "Updated")
         self.assertEqual(self.cook.years_of_experience, 7)
         self.assertRedirects(response, reverse("kitchen:cook-list"))
@@ -161,10 +167,10 @@ class CookUpdateViewTestCase(TestCase):
 class CookDeleteViewTestCase(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(
-            email="testuser", password="testpassword"
+            username="testuser", password="testpassword"
         )
         self.cook = Cook.objects.create(
-            email="cook1",
+            username="cook1",
             first_name="John",
             last_name="Doe",
             email="john@example.com",
