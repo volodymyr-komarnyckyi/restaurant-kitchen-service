@@ -14,10 +14,16 @@ class CookListViewTest(TestCase):
         )
         self.client.force_login(self.user)
         self.cook1 = get_user_model().objects.create_user(
-            username="cook1", first_name="John", last_name="Doe"
+            username="cook1",
+            first_name="John",
+            last_name="Doe",
+            email="john@gmail.com"
         )
         self.cook2 = get_user_model().objects.create_user(
-            username="cook2", first_name="Alice", last_name="Smith"
+            username="cook2",
+            first_name="Alice",
+            last_name="Smith",
+            email="alice@gmail.com"
         )
 
     def test_cook_list_view(self):
