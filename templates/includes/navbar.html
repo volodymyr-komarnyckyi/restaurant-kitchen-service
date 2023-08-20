@@ -21,7 +21,7 @@
 {#    </ul>#}
 {#    <form class="form-inline my-2 my-lg-0">#}
 {#      {% if user.is_authenticated %}#}
-{#        <a class="navbar-brand" href="{% url "kitchen:cook-detail" pk=user.id %}">User: {{ user.username }}</a>#}
+{#        <a class="navbar-brand" href="{% url "kitchen:cook-detail" pk=user.id %}">User: {{ user.email }}</a>#}
 {#          <a class="navbar-brand" href="{% url "logout" %}">Logout</a>#}
 {#      {% else %}#}
 {#          <a class="navbar-brand" href="{% url "login" %}">Login</a>#}
@@ -62,7 +62,7 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       {% if user.is_authenticated %}
-        <a class="navbar-brand" href="{% url "kitchen:cook-detail" pk=user.id %}">User: {{ user.username }}</a>
+        <a class="navbar-brand" href="{% url "kitchen:cook-detail" pk=user.id %}">User: {{ user.email }}</a>
         <a class="navbar-brand" href="{% url "logout" %}">Logout</a>
       {% else %}
         <a class="navbar-brand" href="{% url "login" %}">Login</a>
